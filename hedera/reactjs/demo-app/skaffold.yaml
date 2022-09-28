@@ -1,0 +1,64 @@
+apiVersion: skaffold/v2beta28
+kind: Config
+
+build:
+  tagPolicy:
+    gitCommit:
+      variant: AbbrevCommitSha
+      ignoreChanges: true
+
+  artifacts:
+    - image: gcr.io/arkhia/arkhia-demo
+      docker:
+        dockerfile: Dockerfile
+
+  local:
+    useDockerCLI: true
+    useBuildkit: true
+
+deploy:
+  helm:
+    releases:
+      - name: arkhia-demo
+        artifactOverrides:
+          image: gcr.io/arkhia/arkhia-demo
+        imageStrategy:
+          helm: { }
+        chartPath: arkhia-helm/arkhia-demo
+        createNamespace: false
+
+
+profiles:
+  # Meant for testing with a local cluster like k3d running
+  - name: local
+    activation:
+      - command: dev
+    patches:
+      - op: add
+        path: /build/artifacts/0/docker/target
+        value: development
+      - op: add
+        path: /deploy/helm/releases/0/valuesFiles
+        value:
+          - k8s/local.yaml
+
+  # Different remote cluster environments
+  - name: development 
+    patches:
+      - op: add
+        path: /deploy/helm/releases/0/valuesFiles
+        value:
+          - arkhia-helm/arkhia-demo/values-dev.yaml
+
+      - op: add
+        path: /deploy/helm/releases/0/namespace
+        value: arkhia-dev
+
+      - op: replace 
+        path: /build/artifacts/0/image
+        value: gcr.io/arkhia/arkhia-demo-dev
+
+      - op: replace
+        path: /deploy/helm/releases/0/artifactOverrides/image
+        value: gcr.io/arkhia/arkhia-demo-dev
+
