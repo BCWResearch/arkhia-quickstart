@@ -15,6 +15,7 @@
   "scripts": {
     "relay:get-balance-web3": "nodemon json-rpc-relay/get.balance.web3",
     "relay:get-balance-axios": "nodemon json-rpc-relay/get.balance.axios",
+    "relay:listen-event-ethers": "nodemon json-rpc-relay/event.listener.ethers",
     "test:all" : "./node_modules/.bin/mocha tests/*.test.js",
     "test:config" : "./node_modules/.bin/mocha tests/config.vars.test.js",
     "test:arkhia" : "./node_modules/.bin/mocha tests/arkhia.vars.test.js",
