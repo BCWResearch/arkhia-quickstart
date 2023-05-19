@@ -64,7 +64,11 @@ function StreamingExamples (props: Props) {
 
             socket.on(msg.listeners.data, function (message: any) {
                 try {
-                    if (message.error) return;
+                    if (message.error) {
+                        console.log(`Error`);
+                        console.log(message);
+                        return;
+                    }
                     addTopicMessageToCollection(message);
                 } catch(e) {
                     console.error(`Something went wrong with streaming the message down`);
@@ -80,12 +84,25 @@ function StreamingExamples (props: Props) {
     };
 
     const subscribeToAccountBalance = () => {
+
+        console.log(`YEAH?`);
+        console.log(appConfig.arkhiaApi.getWatchtowerUrl());
+        console.log(socket);
         const requestPayload = WatchtowerService.getAccountSubscriptionPayload(props.accountId.toString());
         socket.emit(`subscribe`, requestPayload, (msg: any) => {           
             setBalanceStatusStreaming('Streaming & Listening Account Balance...');
+            console.log(`payload`);
+            console.log(requestPayload);
+
+            console.log(`msg`);
+            console.log(msg);
             socket.on(msg.listeners.data, function (message: any) {
                 try {
-                    if (message.error) return;
+                    if (message.error) {
+                        console.log(`Error`);
+                        console.log(message);
+                        return;
+                    }
                     console.log(`message`);
                     console.log(message)
                     addBalanceMessageToCollection(message.data.cryptogetAccountBalance);

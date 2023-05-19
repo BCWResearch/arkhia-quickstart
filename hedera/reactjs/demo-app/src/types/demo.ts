@@ -3,7 +3,6 @@ export interface ActionCardContent {
     description: string;
     imageUrl: string;
     demoLink: string;
-    exerciseLink: string;
     tutorialLink: string;
 }
 

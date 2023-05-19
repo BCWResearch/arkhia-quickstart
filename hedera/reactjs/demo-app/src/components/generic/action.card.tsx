@@ -43,17 +43,12 @@ export default function ActionAreaCard (props: ActionCardContent) {
                                 >Tutorial</Button>
                             )
                         }
-                       
                         {
                             props.demoLink !== `` &&  (
                                 <Button href={props.demoLink}>Demo</Button>
                             )
                         }
-                        {
-                            props.exerciseLink !== `` && (
-                                <Button href={props.exerciseLink}>Exercise</Button>
-                            )
-                        }
+
                     </Box>
                 </CardContent>
             </CardActionArea>

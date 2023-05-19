@@ -50,17 +50,17 @@ const env = {
 };
 
 const fairTradeValues: FairTradeValues = {
-    ftc_treasury_id: String(loadedConfig.VITE_HEDERA_FTC_TREASURY_ID) || ``,
-    ftc_treasury_pkey: String(loadedConfig.VITE_HEDERA_FTC_TREASURY_PV_KEY) || ``,
-    ftc_contract_id: hederaItems.CONTRACT_ID,
-    ftc_contract_solidity_id: hederaItems.CONTRACT_SOLIDITY_ID,
-    ftc_token_id: hederaItems.TOKEN_ID,
-    ftc_token_solidity_id: hederaItems.TOKEN_SOLIDITY_ID,
-    ftc_topic_id: hederaItems.TOPIC_ID
+    ftc_treasury_id: String(loadedConfig.VITE_HEDERA_FTC_TREASURY_ID.trim()) || ``,
+    ftc_treasury_pkey: String(loadedConfig.VITE_HEDERA_FTC_TREASURY_PV_KEY.trim()) || ``,
+    ftc_contract_id: hederaItems.CONTRACT_ID.toString().trim(),
+    ftc_contract_solidity_id: hederaItems.CONTRACT_SOLIDITY_ID.toString().trim(),
+    ftc_token_id: hederaItems.TOKEN_ID.toString().trim(),
+    ftc_token_solidity_id: hederaItems.TOKEN_SOLIDITY_ID.toString().trim(),
+    ftc_topic_id: hederaItems.TOPIC_ID.toString().trim()
 };
 
 const streamingValues: StreamingValues = {
-    accountId:  loadedConfig.VITE_HEDERA_STREAMING_ACCOUNT_ID ? String(loadedConfig.VITE_HEDERA_STREAMING_ACCOUNT_ID) : `98`,
+    accountId:  loadedConfig.VITE_HEDERA_STREAMING_ACCOUNT_ID ? String(loadedConfig.VITE_HEDERA_STREAMING_ACCOUNT_ID.trim().toString()) : `14022645`,
 }
 
 const demoValues = { fairTradeValues, streamingValues };
