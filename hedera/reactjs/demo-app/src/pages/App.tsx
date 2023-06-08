@@ -11,8 +11,7 @@ import {
     Routes,
     useLocation
 } from 'react-router-dom';
-import FairTradeDemoFinal from './demos/fairtrade/FairTradeDemoFinal';
-import FairTradeDemoExercise from './demos/fairtrade/FairTradeDemoExercise';
+import FairTrade from './demos/FairTrade';
 import Watchtower from './demos/Watchtower';
 
 const WIDTH: Record<string, { minWidth: number, maxWidth: number }> = {
@@ -56,8 +55,7 @@ export default function App () {
                     <Container >
                         <Routes>
                             <Route index element={<DemoIndex />} />
-                            <Route path='/fairtrade/final' element={<FairTradeDemoFinal />} />
-                            <Route path='/fairtrade/exercise' element={<FairTradeDemoExercise />} />
+                            <Route path='/fairtrade/final' element={<FairTrade />} />
                             <Route path='/watchtower/final' element={<Watchtower />} />
                         </Routes>
                     </Container>

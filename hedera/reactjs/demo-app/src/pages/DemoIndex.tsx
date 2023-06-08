@@ -18,7 +18,6 @@ export default function DemoIndex () {
             description: `Maria wants to help her coffee farming community with the power of Hedera.`,
             imageUrl: `${urlPath}/fair.trade.snapshot.png`,
             demoLink: routes.fairTradeCoffee.demo,
-            exerciseLink: routes.fairTradeCoffee.exercise,
             tutorialLink: routes.fairTradeCoffee.tutorial
         },
         {
@@ -26,7 +25,6 @@ export default function DemoIndex () {
             description: `Our middleware streaming provider. Find quick snippets and examples of what you can do with watchtower.`,
             imageUrl: `${urlPath}/watchtower.small.png`,
             demoLink: routes.watchtower.demo,
-            exerciseLink: routes.watchtower.exercise,
             tutorialLink: routes.watchtower.tutorial
         },
         {
@@ -34,7 +32,6 @@ export default function DemoIndex () {
             description: `Coming soon. Mint nfts on demand with Arkhia.`,
             imageUrl: `${urlPath}/nft.small.jpeg`,
             demoLink: ``,
-            exerciseLink: ``,
             tutorialLink: ``
         }
     ];

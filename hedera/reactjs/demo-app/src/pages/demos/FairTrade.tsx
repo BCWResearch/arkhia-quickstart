@@ -1,5 +1,4 @@
 import Intro from '@/components/demo.page/intro';
-import StreamingAlternative from '@/components/watchtower/streaming.topics';
 import WalletIntegration from '@/components/demo.page/wallet.integration';
 import ArkhiaDataGrid from '@/components/generic/data.grid';
 import FieldLink from '@/components/generic/field.link';
@@ -32,14 +31,13 @@ import React, {
 } from 'react';
 
 
-export default function FairTradeDemoFinal () {
+export default function FairTrade () {
 
     const theme = useTheme();
     const treasureIdAccount = appConfig.demoValues.fairTradeValues.ftc_treasury_id;
     const tokenIdAccount = appConfig.demoValues.fairTradeValues.ftc_token_id;
     const contractId = appConfig.demoValues.fairTradeValues.ftc_contract_id;
-    const topicId = appConfig.demoValues.fairTradeValues.ftc_topic_id;
-
+    
     // wallets
     const [ownerAccount, setOwnerAccount] = useState<Account>();
     const [token, setToken] = useState<FullToken>();
