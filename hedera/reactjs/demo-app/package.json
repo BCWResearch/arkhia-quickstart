@@ -36,7 +36,7 @@
     "data-grid": "^3.0.0",
     "dotenv": "^16.0.3",
     "ethers-react": "^1.1.0",
-    "hash-sdk": "^2.0.4",
+    "hash-sdk": "^2.1.9",
     "hashconnect": "^0.2.3",
     "immer": "^9.0.12",
     "make-plural": "^7.0.0",
